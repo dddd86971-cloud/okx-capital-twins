@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OKX Agent Trade Kit Console</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <p class="eyebrow">LOCAL DEMO CONSOLE</p>
+          <h1>OKX Agent Trade Kit</h1>
+          <p class="brand-sub">Capital Governance Edition</p>
+          <p class="subtitle">让研究、风控、组合、CFO、Trader 串成一条可执行的多 Agent 交易链路。</p>
+        </div>
+
+        <section class="panel">
+          <label class="label" for="scenario">演示剧本</label>
+          <select id="scenario"></select>
+          <p id="scenario-summary" class="muted"></p>
+        </section>
+
+        <section class="panel">
+          <div class="toggle-row">
+            <div>
+              <p class="label">保留状态</p>
+              <p class="muted">连跑多个场景时保留当前账本。</p>
+            </div>
+            <input id="keep-state" type="checkbox" />
+          </div>
+        </section>
+
+        <section class="panel actions">
+          <button id="run-button" class="primary">开始演示</button>
+          <button id="autoplay-button" class="secondary accent">自动播放全流程</button>
+          <button id="pitch-button" class="secondary accent">路演模式</button>
+          <button id="refresh-button" class="secondary">刷新面板</button>
+          <button id="fullscreen-button" class="secondary">全屏展示版</button>
+        </section>
+
+        <section class="panel scenario-meta">
+          <h2>本场规则</h2>
+          <dl id="scenario-meta"></dl>
+        </section>
+      </aside>
+
+      <main class="content">
+        <section class="hero">
+          <div>
+            <p class="eyebrow">LIVE STORYBOARD</p>
+            <h2>研究先给观点，CFO 再给预算</h2>
+            <p id="hero-summary" class="muted">运行 Demo 后，这里会用一句话总结当前场景发生了什么。</p>
+          </div>
+          <div class="hero-side">
+            <div id="status-pill" class="status-pill">等待运行</div>
+            <div id="headline-event" class="headline-event">暂无关键动作</div>
+          </div>
+        </section>
+
+        <section class="pitch-strip">
+          <article class="card">
+            <div class="card-head">
+              <h3>演示讲解词</h3>
+              <span id="pitch-badge" class="metric">PITCH</span>
+            </div>
+            <div id="pitch-script" class="pitch-script empty">进入路演模式后，这里会显示一段适合录屏口播的讲解词。</div>
+          </article>
+        </section>
+
+        <section class="cards" id="balance-cards"></section>
+
+        <section id="spotlight-banner" class="spotlight-banner empty">
+          <div class="spotlight-copy">
+            <p class="eyebrow">SPOTLIGHT</p>
+            <h3>等待关键动作</h3>
+            <p>运行 Demo 后，这里会把最重要的治理动作放大展示。</p>
+          </div>
+          <div id="spotlight-badge" class="spotlight-badge">IDLE</div>
+        </section>
+
+        <section class="top-grid">
+          <article class="card narrative-card">
+            <div class="card-head">
+              <h3>治理进程</h3>
+              <span id="message-count" class="metric">0</span>
+            </div>
+            <div id="messages" class="narrative-stream empty">运行场景后，这里会显示 CFO 与 Trader 的协作过程。</div>
+          </article>
+
+          <article class="card summary-card">
+            <div class="card-head">
+              <h3>当前判断</h3>
+            </div>
+            <div id="decision-summary" class="decision-summary empty">暂无结论</div>
+          </article>
+        </section>
+
+        <section class="mid-grid">
+          <article class="card">
+            <div class="card-head">
+              <h3>预算状态</h3>
+              <span id="grant-count" class="metric">0</span>
+            </div>
+            <div id="grants" class="list empty">暂无预算授权</div>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h3>Trader 风险画像</h3>
+            </div>
+            <div id="trader-profile" class="stats"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h3>关键指标</h3>
+            </div>
+            <div id="highlights" class="stats"></div>
+          </article>
+        </section>
+
+        <section class="compare-grid">
+          <article class="card">
+            <div class="card-head">
+              <h3>治理评分</h3>
+            </div>
+            <div id="governance-score" class="stats"></div>
+          </article>
+
+          <article class="card">
+            <div class="card-head">
+              <h3>无 CFO 对照</h3>
+            </div>
+            <div id="baseline-comparison" class="stats"></div>
+          </article>
+        </section>
+
+        <section class="evidence-grid">
+          <article class="card wide">
+            <div class="card-head">
+              <h3>事件时间线</h3>
+              <span id="event-count" class="metric">0</span>
+            </div>
+            <div id="events" class="timeline empty">暂无事件</div>
+          </article>
+
+          <article class="card wide">
+            <div class="card-head">
+              <h3>执行证据</h3>
+            </div>
+            <div class="evidence-board">
+              <section>
+                <p class="evidence-label">执行阶段</p>
+                <div id="execution-stages" class="execution-stages empty">点击“开始演示”后展示完整执行路径。</div>
+              </section>
+
+              <section>
+                <p class="evidence-label">安全围栏</p>
+                <div id="risk-guards" class="guard-list empty">运行后展示预算限制与回收条件。</div>
+              </section>
+
+              <section>
+                <p class="evidence-label">资金流向</p>
+                <div id="capital-flow" class="capital-flow empty">运行后展示 Funding、Trading、Savings 的变化。</div>
+              </section>
+            </div>
+          </article>
+
+          <article class="card wide">
+            <div class="card-head">
+              <h3>原始日志</h3>
+            </div>
+            <details class="raw-log">
+              <summary>展开查看终端输出</summary>
+              <pre id="stdout" class="console">点击“开始演示”后显示完整终端输出。</pre>
+            </details>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

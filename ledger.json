@@ -1,0 +1,607 @@
+{
+  "balances": {
+    "funding_usdt": 10000.0,
+    "savings_usdt": 8000.0,
+    "trading_usdt": 2000.0
+  },
+  "market": {
+    "borrow_rate_pct": 4.2,
+    "savings_rate_pct": 6.5
+  },
+  "trader_profile": {
+    "win_rate_pct": 64.0,
+    "max_drawdown_pct": -7.0,
+    "consecutive_losses": 2
+  },
+  "budget_grants": [
+    {
+      "grant_id": "0c2bd3e3",
+      "amount": 600.0,
+      "currency": "USDT",
+      "reason": "Low borrow cost and strong recent win rate | health=67.2",
+      "issued_at": "2026-03-17T03:54:25Z",
+      "expires_at": "2026-03-17T04:54:25Z",
+      "status": "REVOKED"
+    }
+  ],
+  "trade_results": [
+    {
+      "trade_id": "237a5710",
+      "grant_id": "0c2bd3e3",
+      "symbol": "BTC-USDT-SWAP",
+      "side": "long",
+      "pnl": 80.0,
+      "leverage": 2.0,
+      "timestamp": "2026-03-17T03:54:25Z"
+    },
+    {
+      "trade_id": "2ba93a5a",
+      "grant_id": "0c2bd3e3",
+      "symbol": "ETH-USDT-SWAP",
+      "side": "long",
+      "pnl": -90.0,
+      "leverage": 3.0,
+      "timestamp": "2026-03-17T03:54:25Z"
+    },
+    {
+      "trade_id": "0860add4",
+      "grant_id": "0c2bd3e3",
+      "symbol": "SOL-USDT-SWAP",
+      "side": "long",
+      "pnl": -60.0,
+      "leverage": 3.0,
+      "timestamp": "2026-03-17T03:54:25Z"
+    }
+  ],
+  "event_log": [
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "Research",
+      "event": "A2A_MARKET_BRIEF",
+      "payload": {
+        "from": "Research",
+        "to": "Portfolio",
+        "type": "market_brief",
+        "timestamp": "2026-03-17T03:54:25Z",
+        "payload": {
+          "market_regime": "mean_reversion",
+          "primary_symbol": "BTC-USDT-SWAP",
+          "direction": "long",
+          "conviction": 0.71,
+          "catalyst": "Funding remains benign and BTC open interest is rising without obvious panic.",
+          "timeframe": "4h"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "Research",
+      "event": "A2A_SENTIMENT_BRIEF",
+      "payload": {
+        "from": "Research",
+        "to": "Portfolio",
+        "type": "sentiment_brief",
+        "timestamp": "2026-03-17T03:54:25Z",
+        "payload": {
+          "sentiment": "constructive",
+          "crowding": "warming_up",
+          "headline": "Short-term flows support a tactical long, but leverage needs a hard ceiling.",
+          "confidence": 0.63
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "Risk",
+      "event": "A2A_RISK_BRIEF",
+      "payload": {
+        "from": "Risk",
+        "to": "Portfolio",
+        "type": "risk_brief",
+        "timestamp": "2026-03-17T03:54:25Z",
+        "payload": {
+          "risk_grade": "B",
+          "max_loss_pct": 10.0,
+          "max_drawdown_pct": 8.0,
+          "max_leverage": 3.5,
+          "stop_condition": "Pull capital back if two losses stack or leverage stretches the budget.",
+          "deployment_ratio_pct": 10.0
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "Portfolio",
+      "event": "A2A_TRADE_PLAN",
+      "payload": {
+        "from": "Portfolio",
+        "to": "CFO",
+        "type": "trade_plan",
+        "timestamp": "2026-03-17T03:54:25Z",
+        "payload": {
+          "proposal_id": "9fdd2173",
+          "primary_symbol": "BTC-USDT-SWAP",
+          "direction": "long",
+          "budget_request": 1000.0,
+          "timeframe": "4h",
+          "thesis": "Run a bounded carry-plus-momentum play while borrow stays cheap and discipline stays enforceable.",
+          "approved_playbook": "BTC carry entry with strict loss containment",
+          "sentiment": "constructive",
+          "risk_grade": "B"
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "CFO",
+      "event": "BUDGET_APPROVED",
+      "payload": {
+        "grant_id": "0c2bd3e3",
+        "amount": 600.0,
+        "currency": "USDT",
+        "reason": "Low borrow cost and strong recent win rate | health=67.2",
+        "issued_at": "2026-03-17T03:54:25Z",
+        "expires_at": "2026-03-17T04:54:25Z",
+        "status": "APPROVED"
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "CFO",
+      "event": "TRANSFER_TO_TRADING",
+      "payload": {
+        "amount": 600.0,
+        "from": "savings_usdt",
+        "to": "trading_usdt"
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "CFO",
+      "event": "A2A_BUDGET_ALLOCATE",
+      "payload": {
+        "from": "CFO",
+        "to": "Trader",
+        "type": "budget_allocate",
+        "timestamp": "2026-03-17T03:54:25Z",
+        "payload": {
+          "grant_id": "0c2bd3e3",
+          "budget_amount": 600.0,
+          "currency": "USDT",
+          "purpose": "BTC funding carry strategy",
+          "max_loss_threshold_pct": 10.0,
+          "max_position_ratio_pct": 5.0,
+          "lock_until": "2026-03-17T04:54:25Z",
+          "reason": "Low borrow cost and strong recent win rate | health=67.2",
+          "require_confirmation": false,
+          "committee_view": {
+            "market_regime": "mean_reversion",
+            "direction": "long",
+            "conviction": 0.71,
+            "sentiment": "constructive",
+            "risk_grade": "B",
+            "deployment_ratio_pct": 10.0,
+            "approved_playbook": "BTC carry entry with strict loss containment"
+          }
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "TRADER",
+      "event": "BUDGET_ACTIVATED",
+      "payload": {
+        "grant_id": "0c2bd3e3"
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "TRADER",
+      "event": "TRADE_EXECUTED",
+      "payload": {
+        "trade_id": "237a5710",
+        "grant_id": "0c2bd3e3",
+        "symbol": "BTC-USDT-SWAP",
+        "side": "long",
+        "pnl": 80.0,
+        "leverage": 2.0,
+        "timestamp": "2026-03-17T03:54:25Z"
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "Trader",
+      "event": "A2A_STATUS_REPORT",
+      "payload": {
+        "from": "Trader",
+        "to": "CFO",
+        "type": "status_report",
+        "timestamp": "2026-03-17T03:54:25Z",
+        "payload": {
+          "grant_id": "0c2bd3e3",
+          "budget_used": 80.0,
+          "current_pnl": 80.0,
+          "pnl_percentage": 13.33,
+          "positions": [
+            {
+              "instId": "BTC-USDT-SWAP",
+              "side": "long",
+              "size": 0.1,
+              "avgPx": 87432.5
+            }
+          ],
+          "risk_level": "low",
+          "near_threshold": false,
+          "message": "BTC-USDT-SWAP long executed."
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "CFO",
+      "event": "RISK_CHECK_PASSED",
+      "payload": {
+        "grant_id": "0c2bd3e3",
+        "total_pnl": 80.0,
+        "consecutive_losses": 0,
+        "drawdown_pct": 0.0,
+        "latest_leverage": 2.0
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "TRADER",
+      "event": "TRADE_EXECUTED",
+      "payload": {
+        "trade_id": "2ba93a5a",
+        "grant_id": "0c2bd3e3",
+        "symbol": "ETH-USDT-SWAP",
+        "side": "long",
+        "pnl": -90.0,
+        "leverage": 3.0,
+        "timestamp": "2026-03-17T03:54:25Z"
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "Trader",
+      "event": "A2A_STATUS_REPORT",
+      "payload": {
+        "from": "Trader",
+        "to": "CFO",
+        "type": "status_report",
+        "timestamp": "2026-03-17T03:54:25Z",
+        "payload": {
+          "grant_id": "0c2bd3e3",
+          "budget_used": 170.0,
+          "current_pnl": -10.0,
+          "pnl_percentage": -1.67,
+          "positions": [
+            {
+              "instId": "ETH-USDT-SWAP",
+              "side": "long",
+              "size": 0.1,
+              "avgPx": 87432.5
+            }
+          ],
+          "risk_level": "medium",
+          "near_threshold": false,
+          "message": "ETH-USDT-SWAP long executed."
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "CFO",
+      "event": "RISK_CHECK_PASSED",
+      "payload": {
+        "grant_id": "0c2bd3e3",
+        "total_pnl": -10.0,
+        "consecutive_losses": 1,
+        "drawdown_pct": 1.0,
+        "latest_leverage": 3.0
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "TRADER",
+      "event": "TRADE_EXECUTED",
+      "payload": {
+        "trade_id": "0860add4",
+        "grant_id": "0c2bd3e3",
+        "symbol": "SOL-USDT-SWAP",
+        "side": "long",
+        "pnl": -60.0,
+        "leverage": 3.0,
+        "timestamp": "2026-03-17T03:54:25Z"
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "Trader",
+      "event": "A2A_ALERT",
+      "payload": {
+        "from": "Trader",
+        "to": "CFO",
+        "type": "alert",
+        "timestamp": "2026-03-17T03:54:25Z",
+        "payload": {
+          "grant_id": "0c2bd3e3",
+          "budget_used": 230.0,
+          "current_pnl": -70.0,
+          "pnl_percentage": -11.67,
+          "positions": [
+            {
+              "instId": "SOL-USDT-SWAP",
+              "side": "long",
+              "size": 0.1,
+              "avgPx": 87432.5
+            }
+          ],
+          "risk_level": "high",
+          "near_threshold": true,
+          "message": "SOL-USDT-SWAP long executed."
+        }
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "CFO",
+      "event": "BUDGET_REVOKED",
+      "payload": {
+        "grant_id": "0c2bd3e3",
+        "reason": "loss_limit, consecutive_losses",
+        "total_pnl": -70.0,
+        "drawdown_pct": 7.0,
+        "latest_leverage": 3.0,
+        "borrow_rate_pct": 4.2
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "CFO",
+      "event": "TRANSFER_TO_SAVINGS",
+      "payload": {
+        "amount": 600.0,
+        "from": "trading_usdt",
+        "to": "savings_usdt"
+      }
+    },
+    {
+      "timestamp": "2026-03-17T03:54:25Z",
+      "actor": "CFO",
+      "event": "A2A_BUDGET_RECALL",
+      "payload": {
+        "from": "CFO",
+        "to": "Trader",
+        "type": "budget_recall",
+        "timestamp": "2026-03-17T03:54:25Z",
+        "payload": {
+          "grant_id": "0c2bd3e3",
+          "reclaim_amount": 600.0,
+          "currency": "USDT",
+          "reason": "loss_limit, consecutive_losses",
+          "total_pnl": -70.0
+        }
+      }
+    }
+  ],
+  "okx_snapshots": [],
+  "a2a_messages": [
+    {
+      "from": "Research",
+      "to": "Portfolio",
+      "type": "market_brief",
+      "timestamp": "2026-03-17T03:54:25Z",
+      "payload": {
+        "market_regime": "mean_reversion",
+        "primary_symbol": "BTC-USDT-SWAP",
+        "direction": "long",
+        "conviction": 0.71,
+        "catalyst": "Funding remains benign and BTC open interest is rising without obvious panic.",
+        "timeframe": "4h"
+      }
+    },
+    {
+      "from": "Research",
+      "to": "Portfolio",
+      "type": "sentiment_brief",
+      "timestamp": "2026-03-17T03:54:25Z",
+      "payload": {
+        "sentiment": "constructive",
+        "crowding": "warming_up",
+        "headline": "Short-term flows support a tactical long, but leverage needs a hard ceiling.",
+        "confidence": 0.63
+      }
+    },
+    {
+      "from": "Risk",
+      "to": "Portfolio",
+      "type": "risk_brief",
+      "timestamp": "2026-03-17T03:54:25Z",
+      "payload": {
+        "risk_grade": "B",
+        "max_loss_pct": 10.0,
+        "max_drawdown_pct": 8.0,
+        "max_leverage": 3.5,
+        "stop_condition": "Pull capital back if two losses stack or leverage stretches the budget.",
+        "deployment_ratio_pct": 10.0
+      }
+    },
+    {
+      "from": "Portfolio",
+      "to": "CFO",
+      "type": "trade_plan",
+      "timestamp": "2026-03-17T03:54:25Z",
+      "payload": {
+        "proposal_id": "9fdd2173",
+        "primary_symbol": "BTC-USDT-SWAP",
+        "direction": "long",
+        "budget_request": 1000.0,
+        "timeframe": "4h",
+        "thesis": "Run a bounded carry-plus-momentum play while borrow stays cheap and discipline stays enforceable.",
+        "approved_playbook": "BTC carry entry with strict loss containment",
+        "sentiment": "constructive",
+        "risk_grade": "B"
+      }
+    },
+    {
+      "from": "CFO",
+      "to": "Trader",
+      "type": "budget_allocate",
+      "timestamp": "2026-03-17T03:54:25Z",
+      "payload": {
+        "grant_id": "0c2bd3e3",
+        "budget_amount": 600.0,
+        "currency": "USDT",
+        "purpose": "BTC funding carry strategy",
+        "max_loss_threshold_pct": 10.0,
+        "max_position_ratio_pct": 5.0,
+        "lock_until": "2026-03-17T04:54:25Z",
+        "reason": "Low borrow cost and strong recent win rate | health=67.2",
+        "require_confirmation": false,
+        "committee_view": {
+          "market_regime": "mean_reversion",
+          "direction": "long",
+          "conviction": 0.71,
+          "sentiment": "constructive",
+          "risk_grade": "B",
+          "deployment_ratio_pct": 10.0,
+          "approved_playbook": "BTC carry entry with strict loss containment"
+        }
+      }
+    },
+    {
+      "from": "Trader",
+      "to": "CFO",
+      "type": "status_report",
+      "timestamp": "2026-03-17T03:54:25Z",
+      "payload": {
+        "grant_id": "0c2bd3e3",
+        "budget_used": 80.0,
+        "current_pnl": 80.0,
+        "pnl_percentage": 13.33,
+        "positions": [
+          {
+            "instId": "BTC-USDT-SWAP",
+            "side": "long",
+            "size": 0.1,
+            "avgPx": 87432.5
+          }
+        ],
+        "risk_level": "low",
+        "near_threshold": false,
+        "message": "BTC-USDT-SWAP long executed."
+      }
+    },
+    {
+      "from": "Trader",
+      "to": "CFO",
+      "type": "status_report",
+      "timestamp": "2026-03-17T03:54:25Z",
+      "payload": {
+        "grant_id": "0c2bd3e3",
+        "budget_used": 170.0,
+        "current_pnl": -10.0,
+        "pnl_percentage": -1.67,
+        "positions": [
+          {
+            "instId": "ETH-USDT-SWAP",
+            "side": "long",
+            "size": 0.1,
+            "avgPx": 87432.5
+          }
+        ],
+        "risk_level": "medium",
+        "near_threshold": false,
+        "message": "ETH-USDT-SWAP long executed."
+      }
+    },
+    {
+      "from": "Trader",
+      "to": "CFO",
+      "type": "alert",
+      "timestamp": "2026-03-17T03:54:25Z",
+      "payload": {
+        "grant_id": "0c2bd3e3",
+        "budget_used": 230.0,
+        "current_pnl": -70.0,
+        "pnl_percentage": -11.67,
+        "positions": [
+          {
+            "instId": "SOL-USDT-SWAP",
+            "side": "long",
+            "size": 0.1,
+            "avgPx": 87432.5
+          }
+        ],
+        "risk_level": "high",
+        "near_threshold": true,
+        "message": "SOL-USDT-SWAP long executed."
+      }
+    },
+    {
+      "from": "CFO",
+      "to": "Trader",
+      "type": "budget_recall",
+      "timestamp": "2026-03-17T03:54:25Z",
+      "payload": {
+        "grant_id": "0c2bd3e3",
+        "reclaim_amount": 600.0,
+        "currency": "USDT",
+        "reason": "loss_limit, consecutive_losses",
+        "total_pnl": -70.0
+      }
+    }
+  ],
+  "governance_summary": {
+    "local_snapshot": {
+      "source": "local_demo",
+      "demo_mode": true,
+      "funding_usdt": 10000.0,
+      "trading_usdt": 2000.0,
+      "savings_usdt": 8000.0,
+      "positions_count": 0,
+      "borrow_rate_pct": 4.2,
+      "savings_rate_pct": 6.5,
+      "trader_win_rate_pct": 64.0,
+      "suggested_budget_usdt": 1000.0
+    },
+    "committee_view": {
+      "market_regime": "mean_reversion",
+      "direction": "long",
+      "conviction": 0.71,
+      "sentiment": "constructive",
+      "risk_grade": "B",
+      "deployment_ratio_pct": 10.0,
+      "approved_playbook": "BTC carry entry with strict loss containment"
+    },
+    "approval_health": {
+      "health_score": 67.2,
+      "borrow_score": 16.0,
+      "trader_score": 91.4,
+      "idle_score": 100.0,
+      "savings_ratio_pct": 80.0
+    },
+    "adaptive_budget": 600.0,
+    "revoke_reasons": [
+      "loss_limit",
+      "consecutive_losses"
+    ],
+    "product_name": "OKX Agent Trade Kit",
+    "edition": "Capital Governance Edition",
+    "scenario_name": "CFO allocates capital, Trader suffers consecutive losses, and CFO recalls the budget.",
+    "grant_id": "0c2bd3e3",
+    "grant_status": "REVOKED",
+    "trades_executed": 3,
+    "total_pnl": -70.0,
+    "protected_capital_usdt": 1000.0
+  },
+  "baseline_comparison": {
+    "starting_trading_usdt": 3000.0,
+    "final_trading_usdt": 2930.0,
+    "total_pnl": -70.0,
+    "drawdown_pct": 7.0,
+    "note": "Trader keeps running with no budget recall or capital clawback."
+  }
+}

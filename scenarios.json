@@ -1,0 +1,134 @@
+{
+  "loss_recall": {
+    "summary": "CFO allocates capital, Trader suffers consecutive losses, and CFO recalls the budget.",
+    "research": {
+      "market_regime": "mean_reversion",
+      "primary_symbol": "BTC-USDT-SWAP",
+      "direction": "long",
+      "conviction": 0.71,
+      "timeframe": "4h",
+      "catalyst": "Funding remains benign and BTC open interest is rising without obvious panic.",
+      "sentiment": "constructive",
+      "crowding": "warming_up",
+      "headline": "Short-term flows support a tactical long, but leverage needs a hard ceiling.",
+      "sentiment_confidence": 0.63,
+      "risk_grade": "B",
+      "deployment_ratio_pct": 10.0,
+      "stop_condition": "Pull capital back if two losses stack or leverage stretches the budget.",
+      "thesis": "Run a bounded carry-plus-momentum play while borrow stays cheap and discipline stays enforceable.",
+      "approved_playbook": "BTC carry entry with strict loss containment"
+    },
+    "market": {
+      "borrow_rate_pct": 4.2,
+      "savings_rate_pct": 6.5
+    },
+    "trader_profile": {
+      "win_rate_pct": 64.0
+    },
+    "budget": {
+      "amount": 1000.0,
+      "currency": "USDT",
+      "ttl_hours": 1,
+      "reason": "Low borrow cost and strong recent win rate",
+      "purpose": "BTC funding carry strategy",
+      "max_borrow_rate_pct": 5.0,
+      "min_win_rate_pct": 60.0
+    },
+    "risk": {
+      "max_loss_threshold_pct": 10.0,
+      "alert_loss_pct": 8.0,
+      "max_position_ratio_pct": 5.0,
+      "max_consecutive_losses": 2,
+      "max_drawdown_pct": 8.0,
+      "max_leverage": 3.5,
+      "borrow_spike_pct": 7.0
+    },
+    "strategy": {
+      "default_size": 0.1,
+      "reference_price": 87432.5
+    },
+    "trades": [
+      {
+        "symbol": "BTC-USDT-SWAP",
+        "side": "long",
+        "pnl": 80.0,
+        "leverage": 2.0
+      },
+      {
+        "symbol": "ETH-USDT-SWAP",
+        "side": "long",
+        "pnl": -90.0,
+        "leverage": 3.0
+      },
+      {
+        "symbol": "SOL-USDT-SWAP",
+        "side": "long",
+        "pnl": -60.0,
+        "leverage": 3.0
+      }
+    ]
+  },
+  "profit_lock": {
+    "summary": "CFO allocates capital, Trader stays inside limits, and the grant remains active.",
+    "research": {
+      "market_regime": "trend_following",
+      "primary_symbol": "ETH-USDT",
+      "direction": "buy",
+      "conviction": 0.78,
+      "timeframe": "1d",
+      "catalyst": "ETH spot momentum and tame funding support a slower directional deployment.",
+      "sentiment": "bullish",
+      "crowding": "healthy",
+      "headline": "Momentum is positive without showing the leverage stress that would force early exit.",
+      "sentiment_confidence": 0.74,
+      "risk_grade": "A-",
+      "deployment_ratio_pct": 14.0,
+      "stop_condition": "Keep grant active while drawdown, leverage, and borrow all remain under caps.",
+      "thesis": "Deploy capital into clean spot momentum and let profits compound while governance guardrails stay armed.",
+      "approved_playbook": "ETH spot momentum with retained budget"
+    },
+    "market": {
+      "borrow_rate_pct": 3.8,
+      "savings_rate_pct": 5.9
+    },
+    "trader_profile": {
+      "win_rate_pct": 68.0
+    },
+    "budget": {
+      "amount": 1200.0,
+      "currency": "USDT",
+      "ttl_hours": 2,
+      "reason": "High idle capital and favorable trader performance",
+      "purpose": "ETH spot momentum strategy",
+      "max_borrow_rate_pct": 5.5,
+      "min_win_rate_pct": 60.0
+    },
+    "risk": {
+      "max_loss_threshold_pct": 10.0,
+      "alert_loss_pct": 8.0,
+      "max_position_ratio_pct": 5.0,
+      "max_consecutive_losses": 2,
+      "max_drawdown_pct": 10.0,
+      "max_leverage": 2.5,
+      "borrow_spike_pct": 7.0
+    },
+    "strategy": {
+      "default_size": 0.5,
+      "reference_price": 2210.0
+    },
+    "trades": [
+      {
+        "symbol": "ETH-USDT",
+        "side": "buy",
+        "pnl": 45.0,
+        "leverage": 1.0
+      },
+      {
+        "symbol": "ETH-USDT",
+        "side": "buy",
+        "pnl": 32.0,
+        "leverage": 1.0
+      }
+    ]
+  }
+}
